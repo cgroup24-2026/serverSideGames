@@ -1,0 +1,700 @@
+/* steam inspired style */
+:root {
+  --bg-color-main: #1b2838;
+  --bg-color-card: #171a21;
+  --text-main: #c7d5e0;
+  --text-title: #ffffff;
+  --accent-color: #66c0f4;
+  --button-hover: #417a9b;
+  --price-color: #a4d007;
+  --tag-bg: #22374c;
+  --tag-text: #66c0f4;
+  --border-radius: 6px;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: var(--bg-color-card);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+  color: var(--text-title);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.modal-content label {
+  display: block;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+    .modal-content input[type="text"],
+    .modal-content input[type="password"] {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #3a4a5c;
+        border-radius: var(--border-radius);
+        background-color: var(--bg-color-main);
+        color: var(--text-main);
+        font-size: 1rem;
+        box-sizing: border-box;
+        margin-bottom: 0.5rem;
+    }
+
+/* removed unused modal button group and save button styles (not referenced) */
+
+.modal-btn-cancel {
+  background-color: transparent;
+  color: var(--text-main);
+  border: 1px solid #3a4a5c;
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.modal-btn-cancel:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color-main);
+  color: var(--text-main);
+  font-family: 'Motiva Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  background-color: var(--bg-color-card);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.title-area {
+  position: absolute;
+  left: 2rem;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.auth-nav {
+  position: absolute;
+  right: 2rem;
+}
+
+.title-area h1 {
+  margin: 0;
+  color: var(--text-title);
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  margin-left: 1.5rem;
+  font-weight: bold;
+}
+
+.auth-nav a{
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.auth-nav #logout{
+    display:none;
+}
+
+nav a:hover, nav a.active {
+    color: var(--text-title);
+}
+
+.auth-nav a:hover, .auth-nav a.active {
+  color: var(--text-title);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.controls {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.login-wrapper {
+  max-width: 420px;
+  margin: 4rem auto;
+  background-color: var(--bg-color-card);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-title {
+  text-align: center;
+  color: var(--text-title);
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-group label {
+  color: var(--text-title);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  background-color: var(--bg-color-main);
+  color: var(--text-main);
+  border: 1px solid #324354;
+  padding: 0.8rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom:0.5rem;
+    font-size: 1rem;
+}
+
+.login-error {
+  display:none;
+  min-height: 1.2rem;
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.register-link {
+  text-align: center;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.register-link a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+input[type="button"].login-btn {
+  background-color: var(--accent-color);
+  color: #000;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  padding: 0.8rem;
+  width: 100%;
+  display: block;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  color: #fff;
+}
+
+input[type="button"].login-btn:hover {
+  background-color: var(--button-hover);
+  color: #fff;
+}
+
+.filters-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+
+#selected-tags-container {
+  margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* Existing inputs/select styling */
+.filters-bar input[type="text"],
+.filters-bar select {
+  background-color: var(--bg-color-card);
+  color: var(--text-main);
+  border: 1px solid #324354;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+}
+
+.filters-bar input[type="text"]:focus,
+.filters-bar select:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.os-filters {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.os-filters label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.game-card {
+  background-color: var(--bg-color-card);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.7);
+}
+
+.card-image img {
+  width: 100%;
+  display: block;
+}
+
+.card-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.game-title {
+  color: var(--text-title);
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.sub-info {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.platforms span {
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.platform-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag {
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
+
+.tag-hidden {
+  display: none;
+}
+
+.tags-expanded .tag-hidden {
+  display: inline;
+}
+
+.btn-toggle-tags {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  font-size: 0.7rem;
+  cursor: pointer;
+  padding: 0.2rem 0.3rem;
+  opacity: 0.7;
+}
+
+.btn-toggle-tags:hover {
+  opacity: 1;
+}
+
+/* Styles for selected tag badges moved from inline JS */
+.tag-badge {
+  background: #e0e0e0;
+  color: #333;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.tag-badge + .tag-badge {
+  margin-left: 6px;
+}
+
+.tag-badge-close {
+  margin-left: 6px;
+  color: #888;
+  font-weight: 700;
+}
+
+.card-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.price {
+  color: var(--price-color);
+  font-weight: bold;
+}
+
+.footer-action {
+  width: 100%;
+}
+
+.footer-action button {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+}
+
+.steam-link {
+  color: var(--accent-color);
+}
+
+.loading-message {
+  text-align: center;
+  color: #8f98a0;
+  font-size: 1.2rem;
+  padding: 3rem 0;
+  grid-column: 1 / -1;
+}
+
+.error-message {
+  text-align: center;
+  color: #e06c75;
+  font-size: 1.1rem;
+  padding: 3rem 0;
+  grid-column: 1 / -1;
+}
+
+.steam-link:hover {
+  text-decoration: underline;
+}
+
+.btn-add {
+  background-color: #a4d007;
+}
+
+.btn-add:hover {
+  background-color: #7a9c05;
+}
+
+.btn-add:disabled {
+    background-color: #666;
+    color: #ccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-delete {
+  background-color: #d03030;
+  color: white;
+}
+
+/* Utility classes moved from inline styles */
+.recommended-section {
+  margin: 1rem 0;
+}
+
+.section-title {
+  margin: 0 0 0.5rem 0;
+}
+
+.section-controls {
+  margin-bottom: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.create-btn {
+  background-color: var(--accent-color);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.wide {
+  max-width: 500px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.select-flex {
+  flex-grow: 1;
+  padding: 0.8rem;
+  background-color: var(--bg-color-main);
+  color: var(--text-main);
+  border: 1px solid #324354;
+  border-radius: var(--border-radius);
+}
+
+.platforms-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+.inline-label {
+  display: inline-block;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+.platform-img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.card-action-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.action-btn {
+  flex: 1;
+}
+
+.modal-close-wrapper {
+  text-align: right;
+  margin-top: -36px;
+}
+
+.modal-games-grid {
+  margin-top: 1rem;
+}
+
+.btn-delete:hover {
+  background-color: #a02020;
+}
+
+.error-message { 
+    color: red; 
+    font-size: 0.85em; 
+    display: none; 
+    margin-top: 5px;
+}
+
+.input-error { 
+    border: 1px solid red !important; 
+}
+
+.tags-container { 
+    margin-top: 10px; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tag-badge { 
+    display: inline-flex; 
+    align-items: center;
+    background-color: var(--tag-bg); 
+    color: var(--tag-text);
+    padding: 0.2rem 0.5rem; 
+    border-radius: 4px; 
+    font-size: 0.75rem;
+}
+
+.tag-badge button { 
+    margin-left: 8px; 
+    cursor: pointer; 
+    background: transparent;
+    color: var(--tag-text);
+    padding: 0;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tag-badge button:hover {
+    color: #ffffff;
+    background: transparent;
+}
+
+/* appended modal sizing for recommendations */
+#recommendation-modal .modal-content {
+  width: 900px;
+  max-width: 95%;
+  max-height: 85vh;
+  overflow: auto;
+  padding: 1.25rem;
+}
+
+/* ensure cards inside modal have comfortable spacing */
+#recommendation-modal .games-grid {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* Table view styles */
+#games-table_wrapper, #games-table {
+  color: var(--text-main);
+}
+#games-table th {
+  color: var(--text-title);
+}
+.price-cell[contenteditable="true"] {
+  outline: none;
+  cursor: text;
+  min-width: 80px;
+}
+.price-cell:focus {
+  box-shadow: inset 0 0 0 2px rgba(102,192,244,0.15);
+}
+
+/* ensure table wrapper blends with dark theme */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  background: transparent;
+  color: var(--text-main) !important;
+  border: 1px solid #2f3f4f;
+}
+
+/* Make table links look like white/gray buttons instead of blue underlined text */
+#games-table a {
+  background-color: #f5f5f5; /* light gray / white */
+  color: #222; /* dark text for contrast */
+  padding: 6px 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid #d0d0d0;
+  display: inline-block;
+  font-weight: 600;
+}
+
+#games-table a:hover {
+  background-color: #e0e0e0;
+  color: #000;
+  text-decoration: none;
+}
+

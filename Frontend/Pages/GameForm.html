@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Game Form</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script src="../Scripts/api_routes.js"></script>
+    <script src="../Scripts/ajaxCalls.js"></script>
+    <script src="../Scripts/auth.js"></script>
+    <script src="../Scripts/gameForm.js"></script>
+</head>
+<body>
+    <header>
+        <div class="title-area">
+            <h1>Steam</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Store</a>
+            <a href="MyGames.html">My Games</a>
+        </nav>
+        <div class="auth-nav">
+            <a href="Login.html" id="login">Login</a>
+            <a href="#" id="logout">Logout</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="login-wrapper wide">
+            <h2 id="headerTitle" class="login-title">Game Form</h2>
+            <form id="gameForm">
+
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Counter-Strike 2" />
+                    <div id="nameError" class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="steamUrl">Steam URL:</label>
+                    <input type="url" id="steamUrl" name="steamUrl" placeholder="https://store.steampowered.com/app/730/" />
+                    <div id="steamUrlError" class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Image URL:</label>
+                    <input type="url" id="image" name="image" placeholder="https://example.com/cs2.jpg" />
+                    <div id="imageError" class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="releaseDate">Release Date (optional):</label>
+                    <input type="date" id="releaseDate" name="releaseDate" />
+                </div>
+
+                <div class="form-group">
+                    <label for="reviewSummary">Review Summary (optional):</label>
+                    <input type="text" id="reviewSummary" name="reviewSummary" placeholder="86.7%" />
+                    <div id="reviewSummaryError" class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Price (0-100):</label>
+                    <input type="number" id="price" name="price" min="0" max="100" placeholder="69" />
+                    <div id="priceError" class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tagsSelect">Add Tags:</label>
+                    <div class="form-row">
+                        <input type="text" id="tags-input" list="tags-list" placeholder="Type or select tags...">
+                        <datalist id="tags-list"></datalist>
+
+                        <button type="button" id="addTagBtn">Add</button>
+                    </div>
+                    <div id="tagsError" class="error-message"></div>
+                    <div id="selectedTags" class="tags-container"></div>
+                </div>
+
+                <div class="form-group" id="platforms">
+                    <label>Platforms:</label>
+                    <div class="platforms-row">
+                        <div>
+                            <input type="checkbox" id="windows" name="windows" /> <label class="inline-label" for="windows">Windows</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="mac" name="mac" /> <label class="inline-label" for="mac">Mac</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="linux" name="linux" /> <label class="inline-label" for="linux">Linux</label>
+                        </div>
+                    </div>
+                    <div id="platformsError" class="error-message"></div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" id="submitBtn" class="login-btn">Save Game</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

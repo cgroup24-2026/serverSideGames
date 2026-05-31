@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store - Login</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script src="../Scripts/ajaxCalls.js"></script>
+    <script src="../Scripts/auth.js"></script>
+    <script src="../Scripts/api_routes.js"></script>
+    <script src="../Scripts/login.js"></script>
+</head>
+<body>
+    <header>
+        <div class="title-area">
+            <h1>Steam</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Store</a>
+            <a href="MyGames.html">My Games</a>
+        </nav>
+        <div class="auth-nav">
+            <a href="Login.html" class="active">Login</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="login-section" class="login-wrapper">
+            <h2 class="login-title">Sign In</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="email@example.com" required />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required />
+                </div>
+                <div id="login-error" class="login-error"></div>
+                <input type="button" class="login-btn" value="Login" />
+                <div class="register-link">
+                    <span>New user?</span>
+                    <a href="">Click here to register</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="register-section" class="login-wrapper hidden" autocomplete="off">
+            <h2 class="login-title">Create Account</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="reg-name">Name</label>
+                    <input type="text" id="reg-name" name="name" placeholder="Michael Jackson" autocomplete="off" required />
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" name="email" placeholder="email@example.com" autocomplete="off" required />
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" name="password" placeholder="••••••••" autocomplete="new-password" required />
+                </div>
+                <div id="register-error" class="login-error"></div>
+                <input type="button" class="login-btn" value="Register" />
+                <div class="register-link">
+                    <span>Already have an account?</span>
+                    <a href="">Sign in here</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

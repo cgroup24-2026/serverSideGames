@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store - My Games</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script src="../Scripts/ajaxCalls.js"></script>
+    <script src="../Scripts/api_routes.js"></script>
+    <script src="../Scripts/auth.js"></script>
+    <script src="../Scripts/myGames.js"></script>
+    <script src="../Scripts/renderCards.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="title-area">
+            <h1>Steam</h1>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Store</a>
+            <a href="MyGames.html" class="active">My Games</a>
+        </nav>
+        <div class="auth-nav">
+            <a href="Login.html" id="login">Login</a>
+            <a href="#" id="logout">Logout</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="toolbar">
+            <h2 class="section-title">My Library</h2>
+            <button onclick="window.location.href='GameForm.html'" class="create-btn">Create New Game</button>
+        </div>
+        <div class="controls">
+            <div id="filters-bar" class="filters-bar">
+                <input type="text" id="search-input" placeholder="Search games...">
+            </div>
+        </div>
+        <div id="my-games-container" class="games-grid">
+            <!-- Games will be loaded here via JavaScript when entering the page -->
+        </div>
+    </div>
+
+</body>
+</html>

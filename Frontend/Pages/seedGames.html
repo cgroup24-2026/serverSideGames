@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Games to DB</title>
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script src="../Scripts/ajaxCalls.js"></script>
+    <script src="../Scripts/api_routes.js"></script>
+</head>
+<body>
+    <h1 id="status">Checking database...</h1>
+    <div id="log"></div>
+
+    <script>
+        $(document).ready(function () {
+            // Step 1: Check if games already exist in the DB
+            ajaxCall("GET", API_ROUTES.gamesApi, null, onGamesExist, onGetError);
+        });
+
+        function onGamesExist(games) {
+            if (games && games.length > 0) {
+                $("#status").text("Games already exist in DB (" + games.length + " found). Redirecting...");
+                setTimeout(function () {
+                    window.location.href = "index.html";
+                }, 1500);
+            } else {
+                $("#status").text("No games found. Loading JSON and seeding DB...");
+                loadAndSeedGames();
+            }
+        }
+
+        function onGetError(err) {
+            $("#status").text("Error checking games. Attempting to seed anyway...");
+            console.error(err);
+            loadAndSeedGames();
+        }
+
+        function loadAndSeedGames() {
+            // Step 2: Read the JSON file
+            $.getJSON(API_ROUTES.gamesJson, function (games) {
+                mapedGames = games.map(({ capsuleImage, ...rest }) => ({
+                    ...rest, image: capsuleImage }));
+                $("#log").append("<p>Loaded " + games.length + " games from JSON.</p>");
+
+                // Step 3: Send all games to the bulk insert endpoint
+                ajaxCall("POST", API_ROUTES.gamesApi + "/InsertAll", JSON.stringify(mapedGames), function (result) {
+                    $("#status").text("Seeding complete! Inserted " + result + " games.");
+                    $("#log").append("<p>Successfully inserted games into DB.</p>");
+                    setTimeout(function () {
+                        window.location.href = "index.html";
+                    }, 2000);
+                }, function (err) {
+                    $("#status").text("Error seeding games.");
+                    $("#log").append("<p>Error: " + JSON.stringify(err) + "</p>");
+                    console.error(err);
+                });
+            }).fail(function (err) {
+                $("#status").text("Failed to load JSON file.");
+                $("#log").append("<p>Could not read steamData.json. Make sure it exists at ../Data/steamData.json</p>");
+                console.error(err);
+            });
+        }
+    </script>
+</body>
+</html>
